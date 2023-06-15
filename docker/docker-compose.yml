@@ -1,0 +1,34 @@
+# docker compose file for my own repo for Data Eng Course in CoderHouse
+# Instead of using POSTGRES we will use MySQL
+
+version: '0'
+
+services:
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "33306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=coder
+      - MYSQL_USER=coder
+      - MYSQL_PASSWORD=coder
+    volumes: 
+      - ./data/mysql:/var/lib/mysql
+    
+    # networks:
+    #   coder_net:
+    #     ipv4_address: 172.30.1.1
+
+# volumes:
+#   mysql_data:
+
+# networks:
+#   coder_net: # Name of the network
+#     ipam: # IP Address Management
+#       driver: default
+#       config:
+#         - subnet: 172.30.0.0/16 # Subnet
+#         # 172.30.0.0 is the default subnet for docker
+#         # 16 is the number of bits used for the network
