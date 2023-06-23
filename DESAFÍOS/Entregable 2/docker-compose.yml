@@ -9,6 +9,7 @@ services:
     # mem_limit: 512m
     # mem_reservation: 128M
     # cpus: 0.5
+    # running http:// localhost:8888/lab?token=coder
     container_name: sem7-pyspark
     ports:
       - "8888:8888"
